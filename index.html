@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahin Montasir Afif - AI/ML Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        #neuralCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(100, 200, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #64b5f6;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-info a {
+            color: #90caf9;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        nav {
+            background: rgba(15, 20, 45, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            border: 1px solid rgba(100, 200, 255, 0.15);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            background: rgba(100, 150, 255, 0.2);
+            color: #fff;
+        }
+
+        section {
+            background: rgba(15, 20, 45, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(100, 200, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #64b5f6;
+            margin: 25px 0 12px;
+            font-size: 1.4em;
+        }
+
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #b0bec5;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(20, 30, 60, 0.5);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(10px);
+            background: rgba(30, 40, 70, 0.6);
+        }
+
+        .institution, .company {
+            color: #90caf9;
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .degree, .role {
+            color: #b0bec5;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+
+        .date-location {
+            color: #78909c;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .gpa {
+            color: #81c784;
+            font-weight: 600;
+        }
+
+        .research-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .interest-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .interest-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3);
+        }
+
+        .publication-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(20, 30, 60, 0.5);
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s;
+        }
+
+        .publication-item:hover {
+            background: rgba(30, 40, 70, 0.6);
+            transform: translateX(8px);
+        }
+
+        .pub-title {
+            color: #90caf9;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pub-authors {
+            color: #b0bec5;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .pub-venue {
+            color: #81c784;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .pub-year {
+            color: #78909c;
+            font-size: 0.85em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: rgba(20, 30, 60, 0.5);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 3px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #64b5f6;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-category p {
+            color: #b0bec5;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #b0bec5;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #78909c;
+            background: rgba(15, 20, 45, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="neuralCanvas"></canvas>
+    
+    <div class="container">
+        <header>
+            <h1>Mahin Montasir Afif</h1>
+            <p class="subtitle">AI & Machine Learning Researcher | Computer Vision Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:mahin.afif360@gmail.com">✉ mahin.afif360@gmail.com</a>
+                <a href="tel:+8801992555805">📞 +880 1992555805</a>
+                <a href="https://github.com/afifnet70" target="_blank">GitHub: afifnet70</a>
+                <a href="https://linkedin.com/in/mahin-montasir-afif" target="_blank">LinkedIn</a>
+                <a href="https://researchgate.net/profile/Mahin-Montasir-Afif" target="_blank">ResearchGate</a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a passionate and research-driven Artificial Intelligence and Machine Learning specialist with a strong focus on academic innovation and applied research. I have experience in developing and implementing intelligent models, data-driven methodologies, and analytical frameworks to solve complex problems.</p>
+                <p style="margin-top: 15px;">I worked as a Remote Research Intern at the Applied Intelligence and Informatics Lab, Nottingham, UK, where I contributed to research projects focused on advanced AI applications. I am dedicated to advancing the frontiers of AI through rigorous research, collaboration, and academic contribution, and I strive to foster innovation and knowledge within higher education and research environments.</p>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="research-interests">
+                <div class="interest-card">Computer Vision</div>
+                <div class="interest-card">Natural Language Processing</div>
+                <div class="interest-card">Deep Learning</div>
+                <div class="interest-card">Medical Image Processing</div>
+                <div class="interest-card">Machine Learning</div>
+                <div class="interest-card">Generative Adversarial Networks</div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="institution">American International University–Bangladesh</div>
+                <div class="degree">B.Sc in Computer Science and Engineering</div>
+                <div class="date-location">2022 – 2025 | Dhaka, Bangladesh</div>
+                <div class="gpa">CGPA: 3.76 / 4.00</div>
+                <p style="color: #b0bec5; margin-top: 8px;">Major: Software Engineering</p>
+            </div>
+            <div class="education-item">
+                <div class="institution">Birshreshtha Munshi Abdur Rouf Public College</div>
+                <div class="degree">Higher Secondary Certificate [HSC]</div>
+                <div class="date-location">2018 – 2020 | Dhaka, Bangladesh</div>
+                <div class="gpa">GPA: 5.00 / 5.00</div>
+                <p style="color: #b0bec5; margin-top: 8px;">Group: Science</p>
+            </div>
+            <div class="education-item">
+                <div class="institution">Kishoreganj Government Boys High School</div>
+                <div class="degree">Secondary School Certificate [SSC]</div>
+                <div class="date-location">2018 | Kishoreganj, Bangladesh</div>
+                <div class="gpa">GPA: 5.00 / 5.00</div>
+                <p style="color: #b0bec5; margin-top: 8px;">Group: Science</p>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Research Publications</h2>
+            <div class="publication-item">
+                <div class="pub-title">PomeGC-Net: A Hybrid Semi-Supervised Graph Convolutional Network Approach for Multi-Class Pomegranate Fruit Disease Classification</div>
+                <div class="pub-authors">M M Afif, S N Eity, T Fairooz, H Mahmud, A T Oishe, R Biswas, S Parvin, M M Ahmmed, M M Rahman, M Mahmud</div>
+                <div class="pub-venue">24th IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2025)</div>
+                <div class="pub-year">2025 | London, UK | IEEE Xplore</div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-title">Enhancing Political Sentiment Analysis through Transformer-Based Temporal Sentiment and Topic Modeling of the Bangladesh Quota Movement Using a Novel ShadheenBD Dataset</div>
+                <div class="pub-authors">M M Afif, A A Noman, K M T Kabir, M M Ahmmed, M M Rahman, M Mahmud</div>
+                <div class="pub-venue">5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025)</div>
+                <div class="pub-year">2025 | Samarkand, Uzbekistan | Springer LNNS</div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-title">CBiG: A Deep Learning-Based Hybrid Model for Early Diabetes Detection with Explainable AI</div>
+                <div class="pub-authors">M M Afif, A A Noman, K B Arko, K M T Kabir, M M Ahmmed, M M Rahman, M Mahmud, M A Babu</div>
+                <div class="pub-venue">5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025)</div>
+                <div class="pub-year">2025 | Samarkand, Uzbekistan | Springer LNNS</div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-title">DGG-XNet: A Hybrid Deep Learning Model for Multi-Class Brain Disease Classification with Explainable AI</div>
+                <div class="pub-authors">S N Eity, M M Afif, T Fairooz, M M Ahmmed, M S U Miah</div>
+                <div class="pub-venue">Applied Intelligence and Informatics (AII 2025)</div>
+                <div class="pub-year">2025 | Washington D.C., USA | Springer CCIS</div>
+            </div>
+            <div class="publication-item">
+                <div class="pub-title">Transformers for Low-Resource Religious Hate Speech Detection: A Comparative Study on Bangla Social Media Discourse</div>
+                <div class="pub-authors">A R Saron, H A Sifat, M M Afif, M M Ahmmed, M M Rahman, M Mahmud</div>
+                <div class="pub-venue">24th IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2025)</div>
+                <div class="pub-year">2025 | London, UK | IEEE Xplore</div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div class="company">Applied Intelligence and Informatics Lab [Remote]</div>
+                <div class="role">Research Intern</div>
+                <div class="date-location">July 2025 – September 2025 | Nottingham, United Kingdom</div>
+                <ul>
+                    <li>Conducted research across diverse domains such as image processing, natural language processing (NLP), and vision pattern recognition</li>
+                    <li>Participated in virtual meetings and research discussions to exchange insights and collaborate on ongoing projects</li>
+                    <li>Developed and implemented deep learning models, including Vision Transformers and transfer learning approaches</li>
+                    <li>Reviewed and critically analyzed existing research papers to identify gaps and support project development</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="company">Al-Madinah International Academy</div>
+                <div class="role">Teacher</div>
+                <div class="date-location">January 2025 – August 2025 | Basundhara R/A, Dhaka, Bangladesh</div>
+                <ul>
+                    <li>Conducted engaging classes in Mathematics and English, ensuring strong conceptual understanding for students</li>
+                    <li>Designed and administered exams, assignments, and quizzes to evaluate student performance</li>
+                    <li>Prepared lesson plans and teaching materials to deliver structured and effective classroom sessions</li>
+                    <li>Provided personalized guidance and mentorship, applying psychological insights to support diverse learning styles</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Deep Learning Frameworks</h4>
+                    <p>TensorFlow, Keras, PyTorch</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <p>Python, C++, MATLAB, Java, Microsoft .NET (C#)</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Database Systems</h4>
+                    <p>PostgreSQL, MySQL, Oracle Database</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Software & Tools</h4>
+                    <p>Visual Studio Code, Microsoft Office Suite, LaTeX, Figma, Jupyter Notebook, Adobe Creative Suite</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Mahin Montasir Afif. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">AI & Machine Learning Researcher | Dhaka, Bangladesh</p>
+        </footer>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('neuralCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const neurons = [];
+        const connections = [];
+        const numNeurons = 80;
+
+        class Neuron {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 3 + 2;
+                this.pulsePhase = Math.random() * Math.PI * 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                this.pulsePhase += 0.02;
+            }
+
+            draw() {
+                const pulse = Math.sin(this.pulsePhase) * 0.5 + 0.5;
+                const alpha = 0.4 + pulse * 0.6;
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(102, 126, 234, ${alpha})`;
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(118, 75, 162, ${alpha * 0.3})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+        }
+
+        for (let i = 0; i < numNeurons; i++) {
+            neurons.push(new Neuron());
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < neurons.length; i++) {
+                for (let j = i + 1; j < neurons.length; j++) {
+                    const dx = neurons[i].x - neurons[j].x;
+                    const dy = neurons[i].y - neurons[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        const alpha = (1 - distance / 150) * 0.3;
+                        ctx.beginPath();
+                        ctx.moveTo(neurons[i].x, neurons[i].y);
+                        ctx.lineTo(neurons[j].x, neurons[j].y);
+                        ctx.strokeStyle = `rgba(100, 150, 255, ${alpha})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+
+                        const pulsePos = (Date.now() % 2000) / 2000;
+                        const px = neurons[i].x + (neurons[j].x - neurons[i].x) * pulsePos;
+                        const py = neurons[i].y + (neurons[j].y - neurons[i].y) * pulsePos;
+                        
+                        ctx.beginPath();
+                        ctx.arc(px, py, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(118, 75, 162, ${alpha * 2})`;
+                        ctx.fill();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(10, 14, 39, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            drawConnections();
+            
+            neurons.forEach(neuron => {
+                neuron.update();
+                neuron.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        animate();
+    </script>
+</body>
+</html>
