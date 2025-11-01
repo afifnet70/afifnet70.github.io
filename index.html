@@ -31,7 +31,7 @@
         .container {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -99,7 +99,7 @@
         nav ul {
             display: flex;
             justify-content: center;
-            gap: 35px;
+            gap: 25px;
             list-style: none;
             flex-wrap: wrap;
         }
@@ -210,9 +210,9 @@
 
         .publication-item {
             margin-bottom: 25px;
-            padding: 20px;
+            padding: 25px;
             background: rgba(20, 30, 60, 0.5);
-            border-radius: 10px;
+            border-radius: 12px;
             border-left: 4px solid #764ba2;
             transition: all 0.3s;
         }
@@ -224,27 +224,84 @@
 
         .pub-title {
             color: #90caf9;
-            font-size: 1.1em;
+            font-size: 1.15em;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
 
         .pub-authors {
             color: #b0bec5;
             font-size: 0.9em;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-style: italic;
+            line-height: 1.6;
         }
 
         .pub-venue {
             color: #81c784;
             font-size: 0.95em;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .pub-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 10px;
         }
 
         .pub-year {
             color: #78909c;
+            font-size: 0.9em;
+        }
+
+        .quartile-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .q1 {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+        }
+
+        .q2 {
+            background: linear-gradient(135deg, #ffd54f, #f57c00);
+            color: #1a1a1a;
+            box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+        }
+
+        .q3 {
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            color: white;
+            box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
+        }
+
+        .impact-factor {
+            background: rgba(66, 165, 245, 0.2);
+            color: #64b5f6;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            border: 1px solid rgba(66, 165, 245, 0.3);
+        }
+
+        .under-review {
+            background: rgba(156, 39, 176, 0.2);
+            color: #ba68c8;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+            font-weight: 600;
         }
 
         .skills-grid {
@@ -280,6 +337,15 @@
             margin-bottom: 8px;
         }
 
+        .section-subtitle {
+            color: #90caf9;
+            font-size: 1.3em;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #667eea;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -305,6 +371,10 @@
 
             nav ul {
                 gap: 15px;
+            }
+
+            .pub-meta {
+                gap: 10px;
             }
         }
     </style>
@@ -332,6 +402,7 @@
                 <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
             </ul>
         </nav>
@@ -383,35 +454,132 @@
 
         <section id="publications">
             <h2>Research Publications</h2>
+            
+            <div class="section-subtitle">Published Works (2025)</div>
+            
             <div class="publication-item">
                 <div class="pub-title">PomeGC-Net: A Hybrid Semi-Supervised Graph Convolutional Network Approach for Multi-Class Pomegranate Fruit Disease Classification</div>
                 <div class="pub-authors">M M Afif, S N Eity, T Fairooz, H Mahmud, A T Oishe, R Biswas, S Parvin, M M Ahmmed, M M Rahman, M Mahmud</div>
-                <div class="pub-venue">24th IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2025)</div>
-                <div class="pub-year">2025 | London, UK | IEEE Xplore</div>
+                <div class="pub-venue">24th IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2025) | IEEE Xplore</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | London, UK</span>
+                </div>
             </div>
+
             <div class="publication-item">
                 <div class="pub-title">Enhancing Political Sentiment Analysis through Transformer-Based Temporal Sentiment and Topic Modeling of the Bangladesh Quota Movement Using a Novel ShadheenBD Dataset</div>
                 <div class="pub-authors">M M Afif, A A Noman, K M T Kabir, M M Ahmmed, M M Rahman, M Mahmud</div>
-                <div class="pub-venue">5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025)</div>
-                <div class="pub-year">2025 | Samarkand, Uzbekistan | Springer LNNS</div>
+                <div class="pub-venue">5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025) | Springer LNNS Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Samarkand, Uzbekistan</span>
+                </div>
             </div>
+
             <div class="publication-item">
                 <div class="pub-title">CBiG: A Deep Learning-Based Hybrid Model for Early Diabetes Detection with Explainable AI</div>
                 <div class="pub-authors">M M Afif, A A Noman, K B Arko, K M T Kabir, M M Ahmmed, M M Rahman, M Mahmud, M A Babu</div>
-                <div class="pub-venue">5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025)</div>
-                <div class="pub-year">2025 | Samarkand, Uzbekistan | Springer LNNS</div>
+                <div class="pub-venue">5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025) | Springer LNNS Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Samarkand, Uzbekistan</span>
+                </div>
             </div>
+
+            <div class="publication-item">
+                <div class="pub-title">An Integrated Multisensor and LSTM-Based Deep Learning Storm Sewer System for Real-Time Flood Risk Prediction and Mitigation</div>
+                <div class="pub-authors">K B Arko, M M Afif, M M Ahmmed, M Lahby</div>
+                <div class="pub-venue">International Symposium on Green Technologies and Applications (ISGTA' 2025) | Springer SPP Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Portalegre, Portugal</span>
+                </div>
+            </div>
+
             <div class="publication-item">
                 <div class="pub-title">DGG-XNet: A Hybrid Deep Learning Model for Multi-Class Brain Disease Classification with Explainable AI</div>
                 <div class="pub-authors">S N Eity, M M Afif, T Fairooz, M M Ahmmed, M S U Miah</div>
-                <div class="pub-venue">Applied Intelligence and Informatics (AII 2025)</div>
-                <div class="pub-year">2025 | Washington D.C., USA | Springer CCIS</div>
+                <div class="pub-venue">Applied Intelligence and Informatics (AII 2025) | Springer CCIS Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Washington D.C., USA</span>
+                </div>
             </div>
+
             <div class="publication-item">
                 <div class="pub-title">Transformers for Low-Resource Religious Hate Speech Detection: A Comparative Study on Bangla Social Media Discourse</div>
                 <div class="pub-authors">A R Saron, H A Sifat, M M Afif, M M Ahmmed, M M Rahman, M Mahmud</div>
-                <div class="pub-venue">24th IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2025)</div>
-                <div class="pub-year">2025 | London, UK | IEEE Xplore</div>
+                <div class="pub-venue">24th IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT 2025) | IEEE Xplore</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | London, UK</span>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Malicious Network Intrusion Detection Using Stacked Ensemble with Explainable AI Techniques</div>
+                <div class="pub-authors">A Bhowmik, T H Apurbo, M M Afif, M M Ahmmed</div>
+                <div class="pub-venue">Applied Intelligence and Informatics (AII 2025) | Springer CCIS Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Washington D.C., USA</span>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Analyzing Climate Change and GHG Emissions in Bangladesh: A Statistical Approach to Environmental Sustainability</div>
+                <div class="pub-authors">K M T Kabir, A A Jihad, M M Afif, M M Ahmmed, M M Rahman, M Mahmud, M A Babu</div>
+                <div class="pub-venue">3rd International Conference on Data Analytics and Insights (ICDAI-2025) | Springer LNNS Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Kolkata, India</span>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Improving Future Safety with Robotics in Disaster Management (DM) in Bangladesh</div>
+                <div class="pub-authors">K M T Kabir, K B Arko, M M Afif, M M Ahmmed, M M Rahman, M Mahmud, M A Babu</div>
+                <div class="pub-venue">3rd International Conference on Data Analytics and Insights (ICDAI-2025) | Springer LNNS Book Series</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Kolkata, India</span>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">A Numerical and ML-Based Study on MHD Thermal Flow Characteristics in Wavy Enclosure with a Baffle</div>
+                <div class="pub-authors">M M Rassel, M M Afif, K M T Kabir, S Seemanta, A Saron, S Afrin, M F A Asad, M M Ahmmed</div>
+                <div class="pub-venue">3rd International Conference on Mechanical Engineering and Applied Sciences (ICMEAS-2025) | IOP Publishing Ltd.</div>
+                <div class="pub-meta">
+                    <span class="pub-year">2025 | Dhaka, Bangladesh</span>
+                </div>
+            </div>
+
+            <div class="section-subtitle">Papers Under Review</div>
+
+            <div class="publication-item">
+                <div class="pub-title">A Deep Learning Based Three-Stage Fusion Neural Network with Composite Adaptive Momentum Optimizer for Bangla Cyberbully Identification</div>
+                <div class="pub-authors">M M Afif, A A Noman, K A Jarif, M E A Arefin, S N Sharma K, M Rahman, D J Gomes, K Tanvir</div>
+                <div class="pub-venue">International Journal of Computational Intelligence Systems | Springer Nature</div>
+                <div class="pub-meta">
+                    <span class="under-review">UNDER REVIEW</span>
+                    <span class="quartile-badge q2">Q2</span>
+                    <span class="impact-factor">IF: 3.0</span>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">PoXeptionNet: A Hybrid Dual Branch Convolutional Neural Network with Feature Fusion for Multiclass Pox Disease Classification</div>
+                <div class="pub-authors">M M Ahmmed, M M Afif, A A Noman, K M T Kabir, S Seemanta, M M Rahman, M Mahmud, M A Babu</div>
+                <div class="pub-venue">International Journal of Image, Graphics and Signal Processing | MECS Press Journal</div>
+                <div class="pub-meta">
+                    <span class="under-review">UNDER REVIEW</span>
+                    <span class="quartile-badge q3">Q3</span>
+                    <span class="impact-factor">SJR: 0.316</span>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-title">Prediction and Classification of MHD Natural Convective Heat Transfer in a Square Cavity Featuring a Horizontal Fin</div>
+                <div class="pub-authors">M F A Asad, S Seemanta, M M Afif, K B Arko, K M T Kabir, M M Ahmmed</div>
+                <div class="pub-venue">International Journal for Numerical Methods in Fluids | WILEY Online Library [John Wiley & Sons Ltd]</div>
+                <div class="pub-meta">
+                    <span class="under-review">UNDER REVIEW</span>
+                    <span class="quartile-badge q1">Q1</span>
+                    <span class="impact-factor">IF: 1.8</span>
+                </div>
             </div>
         </section>
 
@@ -441,6 +609,30 @@
             </div>
         </section>
 
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="experience-item">
+                <div class="company">Synthetic Brain Tumor MRI Generator</div>
+                <div class="role">Deep Learning | GAN</div>
+                <p style="color: #b0bec5; margin-top: 10px;">Generative Adversarial Networks for augmenting Brain Tumors in MRI images to enhance medical imaging datasets for research purposes.</p>
+            </div>
+            <div class="experience-item">
+                <div class="company">Real-time Face Recognition System</div>
+                <div class="role">Computer Vision | OpenCV</div>
+                <p style="color: #b0bec5; margin-top: 10px;">A deep learning project using Convolutional Neural Networks and OpenCV for real-time face recognition with high accuracy.</p>
+            </div>
+            <div class="experience-item">
+                <div class="company">Dhaka Metro</div>
+                <div class="role">.NET | Microsoft SQL Server | C#</div>
+                <p style="color: #b0bec5; margin-top: 10px;">A metro rail e-ticketing system for real-time ticket booking with integrated payment gateway and user management.</p>
+            </div>
+            <div class="experience-item">
+                <div class="company">Office-of-Sports</div>
+                <div class="role">Full Stack Web Development</div>
+                <p style="color: #b0bec5; margin-top: 10px;">A university sports booking management system built with HTML, CSS, JavaScript, TypeScript, and PostgreSQL for real-time slot booking.</p>
+            </div>
+        </section>
+
         <section id="skills">
             <h2>Skills & Expertise</h2>
             <div class="skills-grid">
@@ -461,125 +653,13 @@
                     <p>Visual Studio Code, Microsoft Office Suite, LaTeX, Figma, Jupyter Notebook, Adobe Creative Suite</p>
                 </div>
             </div>
-        </section>
 
-        <footer>
-            <p>&copy; 2025 Mahin Montasir Afif. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">AI & Machine Learning Researcher | Dhaka, Bangladesh</p>
-        </footer>
-    </div>
-
-    <script>
-        const canvas = document.getElementById('neuralCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const neurons = [];
-        const connections = [];
-        const numNeurons = 80;
-
-        class Neuron {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 3 + 2;
-                this.pulsePhase = Math.random() * Math.PI * 2;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-                this.pulsePhase += 0.02;
-            }
-
-            draw() {
-                const pulse = Math.sin(this.pulsePhase) * 0.5 + 0.5;
-                const alpha = 0.4 + pulse * 0.6;
-                
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(102, 126, 234, ${alpha})`;
-                ctx.fill();
-                
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
-                ctx.strokeStyle = `rgba(118, 75, 162, ${alpha * 0.3})`;
-                ctx.lineWidth = 2;
-                ctx.stroke();
-            }
-        }
-
-        for (let i = 0; i < numNeurons; i++) {
-            neurons.push(new Neuron());
-        }
-
-        function drawConnections() {
-            for (let i = 0; i < neurons.length; i++) {
-                for (let j = i + 1; j < neurons.length; j++) {
-                    const dx = neurons[i].x - neurons[j].x;
-                    const dy = neurons[i].y - neurons[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 150) {
-                        const alpha = (1 - distance / 150) * 0.3;
-                        ctx.beginPath();
-                        ctx.moveTo(neurons[i].x, neurons[i].y);
-                        ctx.lineTo(neurons[j].x, neurons[j].y);
-                        ctx.strokeStyle = `rgba(100, 150, 255, ${alpha})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-
-                        const pulsePos = (Date.now() % 2000) / 2000;
-                        const px = neurons[i].x + (neurons[j].x - neurons[i].x) * pulsePos;
-                        const py = neurons[i].y + (neurons[j].y - neurons[i].y) * pulsePos;
-                        
-                        ctx.beginPath();
-                        ctx.arc(px, py, 2, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(118, 75, 162, ${alpha * 2})`;
-                        ctx.fill();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            ctx.fillStyle = 'rgba(10, 14, 39, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            drawConnections();
-            
-            neurons.forEach(neuron => {
-                neuron.update();
-                neuron.draw();
-            });
-
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        animate();
-    </script>
-</body>
-</html>
+            <h3 style="margin-top: 40px;">Core Strengths</h3>
+            <div class="skills-grid" style="margin-top: 20px;">
+                <div class="skill-category">
+                    <h4>Professional Skills</h4>
+                    <p>Strong teamwork abilities, excellent presentation skills, fluent English communication, proficient technical writing</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Certifications</h4>
+                    <p>Data Analysis with Python (IIT, Jahangirnagar University), Master Git & GitHub (Udemy), Decision Trees & X
